@@ -23,7 +23,7 @@ public partial class AllNotesPage : ContentPage
 		if (e.CurrentSelection.Count != 0)
 		{
 			var note = (Models.Note)e.CurrentSelection[0];
-			await Shell.Current.GoToAsync($"{nameof(NotePage)}?{nameof(NotePage.ItemId)}={note.FileName}");
+			await Shell.Current.GoToAsync($"{nameof(NotePage)}?{nameof(NotePage.ItemId)}={note.Filename}");
 			notesCollection.SelectedItem = null;
 		}
 	}
