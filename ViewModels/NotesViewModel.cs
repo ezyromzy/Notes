@@ -46,9 +46,13 @@ namespace Notes.ViewModels
                 NoteViewModel matchedNote = AllNotes.Where((n) => n.Identifier == noteId).FirstOrDefault();
 
                 if (matchedNote != null)
+                {
                     matchedNote.Reload();
+                    AllNotes.Move(AllNotes.IndexOf(matchedNote), 0);
+                }
+                    
                 else
-                    AllNotes.Add(new NoteViewModel(Note.Load(noteId)));
+                    AllNotes.Insert(0, new NoteViewModel(Note.Load(noteId)));
             }
         }
     }
